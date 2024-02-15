@@ -9,7 +9,7 @@ const Header = () => {
             <div className={s.container}>
                 <div className={s.flexWrapper}>
                     <div className={s.logoBlock}>
-                        <Logo/>
+                        <Logo width={50} height={39}/>
                         <span>ChartScrolls</span>
                     </div>
                     <div className={s.menuBlock}>

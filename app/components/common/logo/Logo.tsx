@@ -1,15 +1,18 @@
 import s from './Logo.module.scss';
 import Link from "next/link";
 import Image from "next/image";
-import logoImg from '../../../../assets/images/logo.png';
+type LogoPropsType={
+    width:number,
+    height:number
+}
 
-const Logo = () => {
+const Logo = ({width,height}:LogoPropsType) => {
     return (
         <Link href={'/'} classname={s.logo}>
             <Image
-                src={logoImg}
-                width={50}
-                height={40}
+                src='/icons/logo.svg'
+                width={width}
+                height={height}
                 alt={'chartScrolls'}
                 draggable={false}
             />

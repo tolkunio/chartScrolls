@@ -4,6 +4,7 @@ import {Inter} from "next/font/google";
 import styles from "@/styles/Home.module.scss";
 import Layout from "@/app/components/common/Layout";
 import Footer from "@/app/components/elements/footer/Footer";
+import ResultsBlock from "@/app/components/elements/sections/resultsBlock/ResultsBlock";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -16,9 +17,9 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Layout classnames={styles.main}>
+            <Layout className={styles.main}>
                 <div className={styles.content}>
-
+                    <ResultsBlock/>
                     <Footer/>
                 </div>
             </Layout>
