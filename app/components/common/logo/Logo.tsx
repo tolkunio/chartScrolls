@@ -8,7 +8,7 @@ type LogoPropsType={
 
 const Logo = ({width,height}:LogoPropsType) => {
     return (
-        <Link href={'/'} classname={s.logo}>
+        <Link href={'/'} className={s.logo}>
             <Image
                 src='/icons/logo.svg'
                 width={width}

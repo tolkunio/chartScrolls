@@ -6,8 +6,6 @@ import Layout from "@/app/components/common/Layout";
 import Footer from "@/app/components/elements/footer/Footer";
 import ResultsBlock from "@/app/components/elements/sections/resultsBlock/ResultsBlock";
 
-const inter = Inter({subsets: ["latin"]});
-
 export default function Home() {
     return (
         <>

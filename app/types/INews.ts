@@ -1,4 +1,4 @@
-export interface INew{
+export interface INews {
     id:string,
     title:string,
     author:string,
