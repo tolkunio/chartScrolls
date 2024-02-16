@@ -19,7 +19,7 @@ export const useAllNews = () => {
                     description: news.description,
                     published_utc: news.published_utc,
                     article_url: news.article_url
-                }))
+                })).splice(0,5)
         });
     return queryData;
 }

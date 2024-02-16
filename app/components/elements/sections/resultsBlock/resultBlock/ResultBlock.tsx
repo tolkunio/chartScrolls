@@ -16,7 +16,7 @@ const ResultBlock = ({logo_url, title, author, published_utc, description, artic
     return (
         <section className={s.section}>
             <div className={s.mainBlock}>
-                <Image src={logo_url} width={'110'} height={'34'}/>
+                <Image src={logo_url} width={'110'} height={'34'} alt={'logo'}/>
                 <span className={s.title}>{title}</span>
                 <div className={s.authorBlock}>
                     <span className={s.span}>Author:</span>
