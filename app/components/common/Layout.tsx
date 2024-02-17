@@ -1,4 +1,3 @@
-import Footer from "@/app/components/elements/footer/Footer";
 import Header from "@/app/components/common/header/Header";
 
 const Layout = (props) => {

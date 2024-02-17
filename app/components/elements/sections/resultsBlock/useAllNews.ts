@@ -14,7 +14,7 @@ export const useAllNews = () => {
                     id: news.id,
                     title: news.title,
                     author: news.author,
-                    logo_url: news.logo_url,
+                    logo_url: news.publisher.logo_url,
                     tickers: news.tickers,
                     description: news.description,
                     published_utc: news.published_utc,
