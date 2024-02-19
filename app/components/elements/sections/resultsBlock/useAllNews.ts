@@ -10,7 +10,7 @@ export const useAllNews = () => {
             startDate,
             lastDate), {
             select: ({data}) =>
-                data.map((news): INews => ({
+                data.map((news) => ({
                     id: news.id,
                     title: news.title,
                     author: news.author,
