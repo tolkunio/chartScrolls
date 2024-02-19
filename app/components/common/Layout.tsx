@@ -1,10 +1,12 @@
 import Header from "@/app/components/common/header/Header";
-
-const Layout = (props) => {
+type LayoutProps = {
+    children?: React.ReactNode
+};
+const Layout = ({children}:LayoutProps) => {
     return (
         <div>
             <Header/>
-            <div>{props.children}</div>
+            <div>{children}</div>
         </div>
     );
 };
