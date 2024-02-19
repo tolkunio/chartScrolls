@@ -9,6 +9,7 @@
   z-index: 99999;
   font-size: 1.6rem;
   font-weight: 500;
+  border-bottom: 1px solid #C2C2C7;
 }
 
 .container {

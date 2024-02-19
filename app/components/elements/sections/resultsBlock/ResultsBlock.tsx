@@ -4,6 +4,7 @@ import {useAllNews} from "@/app/components/elements/sections/resultsBlock/useAll
 
 const ResultsBlock = () => {
     const {isLoading, status, data} = useAllNews();
+
     return (
         <div className={s.resultsBlock}>
             <div className={s.container}>
