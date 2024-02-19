@@ -1,9 +1,8 @@
-import {FC} from "react";
 import {QueryClient, QueryClientProvider} from "react-query";
 type MainProviderProps = {
     children?: React.ReactNode
 };
-export const MainProvider: FC = ({children}:MainProviderProps) => {
+export const MainProvider = ({children}:MainProviderProps) => {
     const queryClient = new QueryClient({
         defaultOptions: {
             queries: {
