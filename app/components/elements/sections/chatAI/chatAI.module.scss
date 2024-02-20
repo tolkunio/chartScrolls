@@ -1,38 +1,72 @@
-.chatAI{
+.chatAI {
   padding-top: 9rem;
+  padding-right: 1rem;
+  padding-left: 1.7rem;
   background-color: var(--bg-color);
+  font-size: 1.8rem;
 }
-.container{
+
+.container {
   max-width: 120rem;
   width: 74%;
   min-height: 100%;
   margin: 0 auto;
-  border: 1px solid red;
 }
-.flexWrapper{
+
+.flexWrapper {
   display: flex;
   flex-direction: column;
+  gap: 2.8rem;
 }
-.askBlock{
-
+.questionBlock {
+  >span{
+    padding-top: 2.8rem;
+    font-weight: 500;
+  }
+  .question {
+    padding-top: 0.8rem;
+    font-weight: 400;
+  }
 }
 .answerBlock{
+  >span{
+    font-weight: 500;
+    color: var(--blue-color);
+  }
+  .answer{
+    padding-top: 0.8rem;
+  }
 
 }
-.inputTitle{
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-.inp{
-  width: 90%;
-  padding-bottom: 2rem;
-  margin-top: 0.8rem;
-}
-.you{
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-.answer{
+.askBlock {
+  > span {
+    display: block;
+    font-weight: 500;
+  }
 
 }
+.buttonWrapper{
+  position: relative;
+  > input {
+
+    width: 90%;
+    padding: 2rem 2rem;
+    margin-top: 0.8rem;
+    border: 1px solid #C2C2C7;
+    border-radius: 1.5rem;
+  }
+  >button{
+    position: absolute;
+    top: 1.6rem;
+    right: 7.5rem;
+    background-color: var(--blue-color);
+    border: none;
+    color: white;
+    padding: 0.65rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 40%;
+  }
+}
+

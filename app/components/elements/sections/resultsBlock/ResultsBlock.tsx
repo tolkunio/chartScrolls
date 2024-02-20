@@ -11,7 +11,7 @@ const ResultsBlock = () => {
                 <h2 className={s.sectionTitle}>Related Articles:</h2>
                 <div className={s.flexWrapper}>
                     {status === "error" && <p>Error fetching data:{status}</p>}
-                    {status === 'success' && <>
+                    {status === 'success' && (<>
                         {
                             data.map((result) =>
                                 <ResultBlock key={result.id}
@@ -23,7 +23,7 @@ const ResultsBlock = () => {
                                              article_url={result.article_url}
                                 />)
                         }
-                    </>}
+                    </>)}
                 </div>
             </div>
         </div>
