@@ -1,0 +1,17 @@
+.dropDown{
+  border: 1px solid red;
+  font-size: 1.5rem;
+  > p {
+    border-bottom: 0.5px solid gainsboro;
+    text-align: left;
+  }
+  > p:hover {
+    font-size: 1.7rem;
+  }
+  > p:last-child {
+    border-bottom: 0 none;
+  }
+}
+.hiddenDropDown{
+  display: none;
+}

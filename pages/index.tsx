@@ -4,6 +4,7 @@ import Layout from "@/app/components/common/Layout";
 import Footer from "@/app/components/elements/footer/Footer";
 import ResultsBlock from "@/app/components/elements/sections/resultsBlock/ResultsBlock";
 import ChatAI from "@/app/components/elements/sections/chatAI/chatAI";
+import TickerBlock from "@/app/components/elements/sections/tickerBlock/TickerBlock";
 
 export default function Home() {
     return (
@@ -16,7 +17,8 @@ export default function Home() {
             </Head>
             <Layout>
                 <div className={styles.content}>
-                    <ChatAI/>
+                    <TickerBlock/>
+                    {/*<ChatAI/>*/}
                     <ResultsBlock/>
                     <Footer/>
                 </div>

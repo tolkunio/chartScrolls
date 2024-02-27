@@ -45,6 +45,7 @@
   position: relative;
 }
 .buttonWrapper > input {
+  font-size: 1.8rem;
   width: 90%;
   padding: 2rem 2rem;
   margin-top: 0.8rem;

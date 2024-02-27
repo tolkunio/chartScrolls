@@ -8,7 +8,7 @@ const ResultsBlock = () => {
     return (
         <div className={s.resultsBlock}>
             <div className={s.container}>
-                <h2 className={s.sectionTitle}>Related Articles:</h2>
+                <h2 className={s.sectionTitle}>Headlines:</h2>
                 <div className={s.flexWrapper}>
                     {status === "error" && <p>Error fetching data:{status}</p>}
                     {status === 'success' && (<>

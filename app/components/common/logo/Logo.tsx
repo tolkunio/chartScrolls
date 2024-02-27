@@ -1,4 +1,3 @@
-import s from './Logo.module.scss';
 import Link from "next/link";
 import Image from "next/image";
 type LogoPropsType={
