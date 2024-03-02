@@ -1,0 +1,31 @@
+.selectItem {
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  background-color: #fffefe;
+  width: 80%;
+
+  border: 1px solid #808080;
+  border-top: none;
+
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--bg-color);
+  }
+
+  &:active:not([data-disabled]) {
+    background-color: initial;
+  }
+
+  &[data-highlighted] {
+    color: var(--blue-color);
+    outline: none;
+  }
+}
+
+.text {
+
+}

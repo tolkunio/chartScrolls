@@ -1,0 +1,33 @@
+.wrapper{
+
+}
+.trigger{
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  border: 1px solid #4c4c4c;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: var(--white-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.text{
+  &:hover {
+
+  }
+
+  &:active {
+    color: #17181A;
+  }
+}
+.value{
+
+}
+.icon{
+padding-left: 0.2rem;
+}
+.content{
+
+}

@@ -1,33 +1,31 @@
 import s from './TickerBlock.module.scss';
 import Image from "next/image";
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {useState} from "react";
 import DropDown from "@/app/components/common/dropDown/DropDown";
 import {tickerList} from "@/app/services/news/ticket.service";
 import {ITicker} from "@/app/services/news/ticket.service";
+import {DatePicker} from "@/app/components/common/datePicker/DatePicker";
+import {Select} from "@/app/components/common/select/Select";
 
 
 const TickerBlock = () => {
-    const [showDropDown, setShowDropDown] = useState<boolean>(false);
+    const [showSelect, setShowSelect] = useState<boolean>(false);
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [startDate, setStartDate] = useState<Date>(null);
+    const [endDate, setEndDate] = useState<Date>(null);
 
-    const handleStartDateChange = date => {
-        setStartDate(date);
-    };
-
-    const handleEndDateChange = date => {
-        setEndDate(date);
-    };
-    const toggleDropDown = () => {
-        setShowDropDown(!showDropDown);
+    const toggleSelect = () => {
+        setShowSelect(!showSelect);
     }
-    const tickerSelection =(shortName:string)=>{
+    const onChangetickerSelection =(shortName:string)=>{
         setSelectTicker(shortName);
     }
 
+    let args= {
+            placeholder: 'Choose data period',
+            disabled: false,
+    };
     return (
         <div className={s.tickerBlock}>
             <div className={s.container}>
@@ -35,40 +33,20 @@ const TickerBlock = () => {
                     <div className={s.flexWrapper}>
                         <div className={s.chooseTicker}>
                             <span> Choose a ticker:</span>
-                            <button onClick={toggleDropDown}>
-                                {tickerList[0].name}
-                                <Image src={'/icons/arrow-down.svg'} alt={'arrow-down'} width={14} height={7}/>
-                            </button>
-                            {
-                                showDropDown && (<div className={s.dropDown}>
-                                                    <DropDown tickers={tickerList}
-                                                              showDropDown={true}
-                                                              toggleDropDown={toggleDropDown}
-                                                              tickerSelection={tickerSelection}/>
-                                                </div>)
-                            }
+                            <Select value={selectTicker} options={tickerList} onValueChange={onChangetickerSelection}/>
                         </div>
                         <div className={s.pickupDate}>
                             <span>Pick up the date:</span>
                             <div className={s.datePickerBlock}>
                                 <div className={s.block}>
-                                    <span>from</span>
+                                    <span>Date range</span>
                                     <DatePicker
-                                        className={s.customDatePicker}
-                                        dateFormat="MMMM d, yyyy"
-                                        selected={startDate}
-                                        onChange={handleStartDateChange}
+                                        placeholder={'choose period'}
                                         startDate={startDate}
-                                    />
-                                </div>
-                                <div className={s.block}>
-                                    <span>to</span>
-                                    <DatePicker
-                                        className={s.customDatePicker}
-                                        dateFormat="MMMM d, yyyy"
-                                        selected={endDate}
-                                        onChange={handleEndDateChange}
+                                        setStartDate={setStartDate}
                                         endDate={endDate}
+                                        setEndDate={setEndDate}
+                                        {...args}
                                     />
                                 </div>
                             </div>
