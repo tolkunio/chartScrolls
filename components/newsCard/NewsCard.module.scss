@@ -1,0 +1,56 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+  padding: 1rem 1rem 2.2rem 0;
+  border-bottom: 1px solid #C2C2C7;
+}
+.mainBlock{
+  display: flex;
+  flex-direction: column;
+  >.img{
+    padding-bottom: 1.6rem;
+  }
+}
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 1.2rem;
+}
+
+.span {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.authorBlock{
+  padding-bottom: 1.2rem;
+}
+.dateBlock{
+  padding-bottom: 1.6rem;
+}
+.spanValue {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+
+.desc {
+  font-size: 1.6rem;
+}
+
+.readMore {
+  padding-top: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  gap: 0.4rem;
+  >span{
+    display: block;
+  }
+  >img{
+    display: block;
+  }
+}
