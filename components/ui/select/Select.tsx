@@ -12,6 +12,8 @@ export type SelectProps = {
     placeholder?: ReactNode
     label?: string
     className?: string
+    value:string
+    onValueChange: (value: string) => void
 }
 export const Select=forwardRef<HTMLDivElement, SelectProps>(
     (

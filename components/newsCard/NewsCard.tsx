@@ -1,6 +1,6 @@
 import s from './NewsCard.module.scss';
 import Image from "next/image";
-import {INews} from "@/assets/types";
+import {INews} from "@/assets/api/chart-scrolls-api";
 
 type PropsType = {
     news: INews

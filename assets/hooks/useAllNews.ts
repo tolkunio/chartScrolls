@@ -1,8 +1,8 @@
 import {useState} from "react";
 import {Nullable} from "@/assets/types";
-import {INews} from "@/assets/types";
 import {useEffect} from "react";
 import axios from "axios";
+import {INews} from "@/assets/api/chart-scrolls-api";
 
 export const useAllNews = (startDate: string, endDate: string, tickerName: string):Nullable<INews[]> => {
     const [news, setNews] = useState<Nullable<INews[]>>(null);

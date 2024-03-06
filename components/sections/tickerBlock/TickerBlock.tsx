@@ -1,35 +1,36 @@
 import s from './TickerBlock.module.scss';
-import 'react-datepicker/dist/react-datepicker.css';
 import {useState} from "react";
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import {Select} from "@/components/ui/select/Select";
 import {tickerList} from "@/assets/services/ticket.service";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import {useRouter} from "next/router";
+import 'react-date-picker/dist/DatePicker.css';
+import DatePicker from "react-date-picker";
 
 const TickerBlock = () => {
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [startDate, setStartDate] = useState<Date|null>(null);
+    const [endDate, setEndDate] = useState<Date|null>(null);
     const router = useRouter();
 
     const onChangetickerSelection = (shortName: string) => {
         setSelectTicker(shortName);
     }
+    const handleStartDateChange = (date:Date|null) => {
+        setStartDate(date);
+    };
+    const handleEndDateChange = (date:Date|null) => {
+        setEndDate(date);
+    };
 
     const onClickHandler = () => {
         router.push({
             pathname:'/news',
             query:{
-                startDate:startDate.toISOString(),
-                endDate:endDate.toISOString(),
+                startDate:startDate?.toISOString(),
+                endDate:endDate?.toISOString(),
                 ticker:selectTicker
             }
         });
-        setSelectTicker(tickerList[0].shortName);
-        setStartDate(null);
-        setEndDate(null);
     }
     return (
         <div className={s.tickerBlock}>
@@ -47,17 +48,17 @@ const TickerBlock = () => {
                                 <div className={s.block}>
                                     <span>from</span>
                                     <DatePicker
-                                        selected={startDate}
-                                        onChange={(date) => setStartDate(date)}
-                                        dateFormat={'dd/MM/yyyy'}
+                                        value={startDate}
+                                        onChange={handleStartDateChange}
+                                        format="dd/MM/yyyy"
                                     />
                                 </div>
                                 <div className={s.block}>
-                                    <span>from</span>
+                                    <span>to</span>
                                     <DatePicker
-                                        selected={endDate}
-                                        onChange={(date) => setEndDate(date)}
-                                        dateFormat={'dd/MM/yyyy'}
+                                        value={endDate}
+                                        onChange={handleEndDateChange}
+                                        format="dd/MM/yyyy"
                                     />
                                 </div>
                             </div>
