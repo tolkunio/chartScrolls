@@ -3,9 +3,8 @@ import {useState} from "react";
 import {Select} from "@/components/ui/select/Select";
 import {tickerList} from "@/assets/services/ticket.service";
 import {useRouter} from "next/router";
-import 'react-date-picker/dist/DatePicker.css';
-import DatePicker from "react-date-picker";
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 const TickerBlock = () => {
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
     const [startDate, setStartDate] = useState<Date|null>(null);
@@ -48,17 +47,23 @@ const TickerBlock = () => {
                                 <div className={s.block}>
                                     <span>from</span>
                                     <DatePicker
-                                        value={startDate}
+                                        selected={startDate}
                                         onChange={handleStartDateChange}
-                                        format="dd/MM/yyyy"
+                                        dateFormat="dd/MM/yyyy"
+                                        isClearable
+                                        showYearDropdown
+                                        scrollableYearDropdown
                                     />
                                 </div>
                                 <div className={s.block}>
                                     <span>to</span>
                                     <DatePicker
-                                        value={endDate}
+                                        selected={endDate}
                                         onChange={handleEndDateChange}
-                                        format="dd/MM/yyyy"
+                                        dateFormat="dd/MM/yyyy"
+                                        isClearable
+                                        showYearDropdown
+                                        scrollableYearDropdown
                                     />
                                 </div>
                             </div>

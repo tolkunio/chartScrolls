@@ -7,9 +7,10 @@ import {API} from "@/assets/api/api";
 type PropsType = {
     news: ResponseType<INews>
 }
-export const getServerSideProps = async ({ params }) => {
-    console.log(params);
-    const { startDate, endDate, ticker } = params;
+export const getServerSideProps = async () => {
+    const startDate=new Date('2023-01-10T14:48:02.123').toISOString();
+    const endDate=new Date().toISOString();
+    let ticker='AAPL'
 
     const news = await API.chartScrollsApi.getNews({startDate,endDate,ticker});
     if (!news) {
@@ -20,15 +21,12 @@ export const getServerSideProps = async ({ params }) => {
     return {
         props: {
             news,
-            startDate,
-            endDate,
-            ticker
         }
     }
 
 }
-const News = (props: PropsType &{ startDate: string, endDate: string, ticker: string }) => {
-    const {startDate, endDate, ticker,news} = props;
+const News = (props:PropsType) => {
+    const {news} = props;
     return (
         <div className={s.newsBlock}>
             <div className={s.container}>

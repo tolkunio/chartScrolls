@@ -23,20 +23,17 @@ export const Select=forwardRef<HTMLDivElement, SelectProps>(
             label,
             value,
             onValueChange,
-            fullWidth,
-            disabled,
             className,
             ...restProps
         },
         ref?
     ) => {
-        const currentItem = options.find(item => item.shortName == value).name
+        const currentItem = options.find(item => item.shortName == value)?.name ||''
         return(
             <div className={s.wrapper}>
                 <RadixSelect.Root
                     value={value}
-                    onValueChange={onValueChange}
-                    disabled={disabled}>
+                    onValueChange={onValueChange}>
                     {label}
                     <RadixSelect.Trigger className={s.trigger} aria-label="select">
                         <p className={s.text}>
