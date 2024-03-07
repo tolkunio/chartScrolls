@@ -11,7 +11,6 @@ type PropsType = {
 }
 const News = (props: PropsType) => {
     const {news, isLoading} = props;
-    console.log(isLoading);
     return (
         <div className={s.newsBlock}>
             <div className={s.container}>

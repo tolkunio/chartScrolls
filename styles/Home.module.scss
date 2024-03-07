@@ -1,4 +1,8 @@
-
-.content{
-padding-top:8rem;
+.content {
+  background-color: var(--bg-color);
+  padding-top: 8rem;
+}
+.body{
+  display: flex;
+  flex-direction: row;
 }

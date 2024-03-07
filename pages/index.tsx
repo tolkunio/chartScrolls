@@ -6,6 +6,7 @@ import {useState} from "react";
 import {INews} from "@/assets/api/chart-scrolls-api";
 import TickerBlock from "@/components/sections/tickerBlock/TickerBlock";
 import News from "@/pages/news";
+import ChatAI from "@/components/sections/chatAI/chatAI";
 
 ;
 
@@ -21,7 +22,10 @@ function Home() {
             <HeadMeta title={'ChartScrolls'}/>
             <div className={styles.content}>
                 <TickerBlock onClickHandler={handleNewsUpdate} setIsLoading={setIsLoading}/>
-                <News isLoading={isLoading} news={news}/>
+                <div className={styles.body}>
+                    <News isLoading={isLoading} news={news}/>
+                    <ChatAI/>
+                </div>
             </div>
             <Footer/>
         </>
