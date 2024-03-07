@@ -5,32 +5,46 @@ import {tickerList} from "@/assets/services/ticket.service";
 import {useRouter} from "next/router";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-const TickerBlock = () => {
+import {INews} from "@/assets/api/chart-scrolls-api";
+import {API} from "@/assets/api/api";
+
+type PropsType = {
+    setIsLoading: (isLoading: boolean) => void
+    onClickHandler: (news: INews[]) => void
+}
+const TickerBlock = ({onClickHandler, setIsLoading}: PropsType) => {
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
-    const [startDate, setStartDate] = useState<Date|null>(null);
-    const [endDate, setEndDate] = useState<Date|null>(null);
-    const router = useRouter();
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
 
     const onChangetickerSelection = (shortName: string) => {
         setSelectTicker(shortName);
     }
-    const handleStartDateChange = (date:Date|null) => {
+    const handleStartDateChange = (date: Date | null) => {
         setStartDate(date);
     };
-    const handleEndDateChange = (date:Date|null) => {
+    const handleEndDateChange = (date: Date | null) => {
         setEndDate(date);
     };
-
-    const onClickHandler = () => {
-        router.push({
-            pathname:'/news',
-            query:{
-                startDate:startDate?.toISOString(),
-                endDate:endDate?.toISOString(),
-                ticker:selectTicker
+    const handleClick = async () => {
+        setIsLoading(true);
+        setTimeout(async () => {
+            const news = await API.chartScrollsApi.getNews({
+                firstDate: startDate?.toISOString(),
+                lastDate: endDate?.toISOString(),
+                ticker: selectTicker
+            });
+            if (!news) {
+                setIsLoading(false);
+                return {
+                    notFound: true
+                }
             }
-        });
-    }
+            onClickHandler(news);
+            setIsLoading(false);
+        }, 1600)
+    };
+
     return (
         <div className={s.tickerBlock}>
             <div className={s.container}>
@@ -70,15 +84,15 @@ const TickerBlock = () => {
                         </div>
                     </div>
                     <div className={s.btnWrapper}>
-                        <button onClick={onClickHandler} className={s.submit}>Submit</button>
+                        <button onClick={handleClick} className={s.submit}>Submit</button>
                     </div>
                 </div>
 
             </div>
         </div>
 
-)
-    ;
+    )
+        ;
 };
 
 export default TickerBlock;

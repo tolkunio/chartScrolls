@@ -4,7 +4,7 @@ import {Nullable} from "@/assets/types";
 export class ChartScrollsApi {
     constructor(private instance: AxiosInstance) {}
 
-    public getNews(params: { startDate: string, endDate: string, ticker: string, page?: number }) {
+    public getNews(params: {firstDate: string, lastDate: string, ticker: string, page?: number }) {
         return this.instance.get<ResponseType<INews>>("/news", {
             params
         }).then((res) => res.data);
