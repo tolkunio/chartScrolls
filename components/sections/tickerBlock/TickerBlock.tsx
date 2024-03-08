@@ -11,7 +11,7 @@ type PropsType = {
     setIsLoading: (isLoading: boolean) => void
     onClickResponseUpdate: (news: IResponse) => void
 }
-const TickerBlock = ({onClickResponseUpdate, onClickAnswerUpdate, setIsLoading}: PropsType) => {
+const TickerBlock = ({onClickResponseUpdate, setIsLoading}: PropsType) => {
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
