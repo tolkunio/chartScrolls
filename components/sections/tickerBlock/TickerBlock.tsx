@@ -1,21 +1,24 @@
 import s from './TickerBlock.module.scss';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Select} from "@/components/ui/select/Select";
 import {tickerList} from "@/assets/services/ticket.service";
-import {useRouter} from "next/router";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import {INews} from "@/assets/api/chart-scrolls-api";
+import {IResponse} from "@/assets/api/chart-scrolls-api";
 import {API} from "@/assets/api/api";
 
 type PropsType = {
     setIsLoading: (isLoading: boolean) => void
-    onClickHandler: (news: INews[]) => void
+    onClickResponseUpdate: (news: IResponse) => void
 }
-const TickerBlock = ({onClickHandler, setIsLoading}: PropsType) => {
+const TickerBlock = ({onClickResponseUpdate, onClickAnswerUpdate, setIsLoading}: PropsType) => {
     const [selectTicker, setSelectTicker] = useState<string>(tickerList[0].shortName);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
+
+    useEffect(() => {
+        setSelectTicker(selectTicker);
+    }, [selectTicker]);
 
     const onChangetickerSelection = (shortName: string) => {
         setSelectTicker(shortName);
@@ -28,22 +31,20 @@ const TickerBlock = ({onClickHandler, setIsLoading}: PropsType) => {
     };
     const handleClick = async () => {
         setIsLoading(true);
-        setTimeout(async () => {
-            const news = await API.chartScrollsApi.getNews({
-                firstDate: startDate?.toISOString(),
-                lastDate: endDate?.toISOString(),
-                ticker: selectTicker
-            });
-            if (!news) {
-                setIsLoading(false);
-                return {
-                    notFound: true
-                }
-            }
-            onClickHandler(news);
+        const news = await API.chartScrollsApi.getNews({
+            firstDate: startDate?.toISOString() || '',
+            lastDate: endDate?.toISOString() || '',
+            ticker: selectTicker
+        })
+        if (!news) {
             setIsLoading(false);
-        }, 1600)
-    };
+            return {
+                notFound: true
+            }
+        }
+        onClickResponseUpdate(news);
+        setIsLoading(false);
+    }
 
     return (
         <div className={s.tickerBlock}>
@@ -91,8 +92,7 @@ const TickerBlock = ({onClickHandler, setIsLoading}: PropsType) => {
             </div>
         </div>
 
-    )
-        ;
+    );
 };
 
 export default TickerBlock;

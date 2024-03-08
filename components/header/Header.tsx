@@ -1,6 +1,6 @@
 import s from './Header.module.scss';
 import Logo from "@/components/ui/logo/Logo";
-import Link from "next/link";
+
 const menu = ['About us', 'News', 'Pricing', 'Contacts'];
 const Header = () => {
     return (

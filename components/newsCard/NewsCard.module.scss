@@ -4,10 +4,12 @@
   background-color: var(--white-color);
   padding: 1rem 1rem 2.2rem 0;
   border-bottom: 1px solid #C2C2C7;
+  border-radius: 1.2rem;
 }
 .mainBlock{
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
   >.img{
     padding-bottom: 1.6rem;
   }
@@ -40,6 +42,7 @@
 
 .readMore {
   padding-top: 1.2rem;
+  padding-left: 1rem;
   display: flex;
   flex-direction: row;
   align-self: flex-start;

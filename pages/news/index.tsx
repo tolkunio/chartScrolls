@@ -10,6 +10,7 @@ type PropsType = {
     news: INews[]
 }
 const News = (props: PropsType) => {
+
     const {news, isLoading} = props;
     return (
         <div className={s.newsBlock}>

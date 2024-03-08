@@ -8,17 +8,14 @@
   font-size: 2.4rem;
   font-weight: 600;
   padding-top: 1.6rem;
-  padding-bottom: 1.2rem;
-}
-.flexWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2.8rem;
+  padding-bottom: 2.5rem;
 }
 
 .answerBlock{
-  padding: 1.4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: var(--white-color);
+  border-radius: 1.2rem;
 
   >span{
     font-weight: 500;
@@ -30,3 +27,11 @@
 
 }
 
+.skeleton{
+  width:100%;
+  background-color: var(--bg-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem
+}

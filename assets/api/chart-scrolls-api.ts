@@ -1,33 +1,18 @@
 import {AxiosInstance} from 'axios';
-import {Nullable} from "@/assets/types";
 
 export class ChartScrollsApi {
     constructor(private instance: AxiosInstance) {}
 
     public getNews(params: {firstDate: string, lastDate: string, ticker: string, page?: number }) {
-        return this.instance.get<ResponseType<INews>>("/news", {
+        return this.instance.get<IResponse>("/response", {
             params
-        }).then((res) => res.data);
+        }).then(res=>res.data);
     }
 }
 
 /**
  * types
  */
-export type ResponseType<T> = {
-    info: InfoType;
-    results: T[];
-};
-
-type InfoType = {
-    count: number;
-    pages: number;
-    next: Nullable<string>;
-    prev: Nullable<string>;
-};
-type ParamsType = {
-    page: number;
-};
 
 export interface INews {
     id: string,
@@ -45,4 +30,10 @@ export interface IPublisher {
     homepage_url: string,
     logo_url: string,
     favicon_url: string
+}
+export interface IResponse{
+    contentResponseDto:{
+        content:string
+    }
+    latestNews:INews[]
 }
