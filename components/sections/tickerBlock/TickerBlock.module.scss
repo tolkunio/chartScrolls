@@ -12,7 +12,7 @@
 .mainFlexWrapper{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  gap: 10rem;
 }
 .flexWrapper {
   width: 62%;
@@ -86,13 +86,41 @@
   align-self: flex-end;
 }
 .submit{
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.4rem 9rem;
+
+  font-size:1.6rem;
+  font-weight: 500;
+  line-height: 2rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  padding:1.3rem 9rem 1.3rem 9rem;
-  font-size: 1.6rem;
-  color: var(--white-color);
+
   background-color: var(--blue-color);
-  border-radius: 1.6rem;
   border: none;
+  border-radius: 1.2rem;
+
+  transition: all 0.4s ease-in-out;
+
+  color: var(--white-color);
+  &:hover {
+    background-color: #6AB4F8;
+  }
+
+  &:active {
+    background-color: #3781C5;
+  }
+
+  &:disabled {
+    color: var(--white-color);
+    background-color: #90C7FA;
+  }
 }

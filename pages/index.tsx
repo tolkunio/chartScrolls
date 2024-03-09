@@ -7,9 +7,6 @@ import TickerBlock from "@/components/sections/tickerBlock/TickerBlock";
 import News from "@/pages/news";
 import ChatAI from "@/components/sections/chatAI/chatAI";
 import {IResponse} from "@/assets/api/chart-scrolls-api";
-
-;
-
 function Home() {
     const [data, setData] = useState<IResponse>();
     const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +20,7 @@ function Home() {
                 <TickerBlock onClickResponseUpdate={handleResponseUpdate} setIsLoading={setIsLoading}/>
                 <div className={styles.body}>
                     <News isLoading={isLoading} news={data?.latestNews || []}/>
-                    <ChatAI content={data?.contentResponseDto.content || ''}/>
+                    <ChatAI isLoading={isLoading} content={data?.contentResponseDto.content || ''}/>
                 </div>
             </div>
             <Footer/>

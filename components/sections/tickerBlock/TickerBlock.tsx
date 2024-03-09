@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {IResponse} from "@/assets/api/chart-scrolls-api";
 import {API} from "@/assets/api/api";
+import NotFound from "@/pages/404";
 
 type PropsType = {
     setIsLoading: (isLoading: boolean) => void
@@ -35,12 +36,10 @@ const TickerBlock = ({onClickResponseUpdate, setIsLoading}: PropsType) => {
             firstDate: startDate?.toISOString() || '',
             lastDate: endDate?.toISOString() || '',
             ticker: selectTicker
-        })
+        },)
         if (!news) {
             setIsLoading(false);
-            return {
-                notFound: true
-            }
+
         }
         onClickResponseUpdate(news);
         setIsLoading(false);

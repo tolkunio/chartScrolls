@@ -4,14 +4,14 @@ import s from './News.module.scss';
 import {getLayout} from "@/components/Layout/Layout";
 import {INews} from "@/assets/api/chart-scrolls-api";
 import Skeleton from "react-loading-skeleton";
+import NotFound from "@/pages/404";
 
 type PropsType = {
     isLoading: boolean
     news: INews[]
 }
-const News = (props: PropsType) => {
-
-    const {news, isLoading} = props;
+const News = ({news, isLoading}: PropsType) => {
+    if (news.length === 0) return <NotFound msg={'NEWS'}/>
     return (
         <div className={s.newsBlock}>
             <div className={s.container}>
@@ -23,7 +23,7 @@ const News = (props: PropsType) => {
                                 <Skeleton count={40}/>
                             </div>
                             :
-                            news && news.map(newsItem => <Link key={newsItem.id} href={`/news/${newsItem.id}`}>
+                            news.map(newsItem => <Link key={newsItem.id} href={`/news/${newsItem.id}`}>
                                 <NewsCard news={newsItem}/>
                             </Link>)
                     }
