@@ -11,7 +11,7 @@ type PropsType = {
     news: INews[]
 }
 const News = ({news, isLoading}: PropsType) => {
-    if (news.length === 0) return <NotFound msg={'NEWS'}/>
+    if (!news || news.length === 0) return <NotFound msg={'NEWS'}/>
     return (
         <div className={s.newsBlock}>
             <div className={s.container}>
