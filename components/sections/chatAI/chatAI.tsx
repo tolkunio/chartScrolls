@@ -6,6 +6,7 @@ type PropsType = {
     isLoading: boolean
 }
 const ChatAI = ({content, isLoading}: PropsType) => {
+    if(!content) return null;
     return (
         <div className={s.chatAI}>
             <h2 className={s.sectionTitle}>Why:</h2>
