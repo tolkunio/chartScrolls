@@ -4,6 +4,7 @@ import {ReactNode,forwardRef} from "react";
 import Image from "next/image";
 import {SelectItem} from "@/components/ui/select/SelectItem/SelectItem";
 import {ITicker} from "@/assets/services/ticket.service";
+import {tickerList} from "@/assets/services/ticket.service";
 
 export type SelectProps = {
     options:ITicker []
@@ -26,7 +27,7 @@ export const Select=forwardRef<HTMLDivElement, SelectProps>(
         },
         ref?
     ) => {
-        const currentItem = options.find(item => item.shortName == value)
+        const currentItem = options.find(item => item.shortName == value);
         return(
             <div className={s.wrapper}>
                 <RadixSelect.Root
@@ -35,7 +36,7 @@ export const Select=forwardRef<HTMLDivElement, SelectProps>(
                     {label}
                     <RadixSelect.Trigger className={s.trigger} aria-label="select">
                         <p className={s.text}>
-                            {`${currentItem.name} (${currentItem.shortName})`}
+                            {`${currentItem?.name} (${currentItem?.shortName})`}
                         </p>
                         <RadixSelect.Icon className={s.icon}>
                             <Image src={'/icons/select-arrow.svg'} width={24} height={24} alt={'arrow-down'}/>
