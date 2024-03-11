@@ -33,7 +33,7 @@ const TickerBlock = ({onClickResponseUpdate, setIsLoading}: PropsType) => {
     };
     const handleClick = async () => {
         setIsLoading(true);
-        const news = await axios.get<IResponse>(`${process.env.NEXT_PUBLIC_CHSC_BACKEND_API_URL}/response`,{
+        const news = await axios.get<IResponse>('https://chsc-backend-production.up.railway.app/response',{
             params:{
                 firstDate: startDate?.toISOString() || '',
                 lastDate: endDate?.toISOString() || '',
