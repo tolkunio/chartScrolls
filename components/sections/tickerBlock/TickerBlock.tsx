@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import {IResponse} from "@/assets/api/chart-scrolls-api";
 import {API} from "@/assets/api/api";
 import NotFound from "@/pages/404";
+import axios from "axios";
 
 type PropsType = {
     setIsLoading: (isLoading: boolean) => void
@@ -32,11 +33,14 @@ const TickerBlock = ({onClickResponseUpdate, setIsLoading}: PropsType) => {
     };
     const handleClick = async () => {
         setIsLoading(true);
-        const news = await API.chartScrollsApi.getNews({
-            firstDate: startDate?.toISOString() || '',
-            lastDate: endDate?.toISOString() || '',
-            ticker: selectTicker
-        },)
+        const news = await axios.get<IResponse>(`${process.env.NEXT_PUBLIC_CHSC_BACKEND_API_URL}/response`,{
+            params:{
+                firstDate: startDate?.toISOString() || '',
+                lastDate: endDate?.toISOString() || '',
+                ticker: selectTicker
+            }
+        }).then(res=>res.data);
+
         if (!news) {
             setIsLoading(false);
 
