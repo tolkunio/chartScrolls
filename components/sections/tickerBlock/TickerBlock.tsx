@@ -33,7 +33,7 @@ const TickerBlock = ({onClickResponseUpdate, setIsLoading}: PropsType) => {
     };
     const handleClick = async () => {
         setIsLoading(true);
-        const news = await axios.get<IResponse>('https://chsc-backend-production.up.railway.app/response',{
+        const news = await axios.get<IResponse>('https://vertex-api-417118.uc.r.appspot.com/response',{
             params:{
                 firstDate: startDate?.toISOString() || '',
                 lastDate: endDate?.toISOString() || '',
