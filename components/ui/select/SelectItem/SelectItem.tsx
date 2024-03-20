@@ -16,7 +16,7 @@ export const SelectItem = forwardRef<ElementRef<typeof RadixSelect.Item>, Select
     return (
       <RadixSelect.Item ref={ref} className={s.selectItem} {...restProps}>
         <RadixSelect.ItemText>
-          <span className={s.text}> {children}</span>
+          {children}
         </RadixSelect.ItemText>
       </RadixSelect.Item>
     )

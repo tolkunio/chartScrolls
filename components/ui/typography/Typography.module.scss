@@ -1,0 +1,73 @@
+@mixin typography($fontSize, $lineHeight, $fontWeight) {
+  margin: 0;
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: var(--color-dark-500);
+}
+
+.h1 {
+  @include typography(30px, 36px, var(--font-weight-semi-bold));
+}
+
+.h2 {
+  @include typography(28px, 36px, var(--font-weight-medium));
+}
+
+.h3 {
+  @include typography(22px, 36px, var(--font-weight-bold));
+}
+
+.h4 {
+  @include typography(20px, 24px, var(--font-weight-semi-bold));
+}
+
+.h5 {
+  @include typography(18px, 24px, var(--font-weight-medium));
+}
+
+.subtitle {
+  @include typography(16px, 24px, var(--font-weight-medium));
+}
+
+.subtitleLink {
+  @include typography(16px, 24px, var(--font-weight-semi-bold));
+
+  color: var(--color-accent-500);
+  text-decoration: underline;
+}
+
+.subtitle2 {
+  @include typography(16px, 24px, var(--font-weight-medium));
+}
+
+.subtitle2Link {
+  @include typography(14px, 24px, var(--font-weight-semi-bold));
+
+  color: var(--color-accent-500);
+  text-decoration: underline;
+}
+
+.body {
+  @include typography(16px, 24px, var(--font-weight-regular));
+}
+
+.body2 {
+  @include typography(14px, 24px, var(--font-weight-regular));
+}
+
+.body2SemiBold {
+  @include typography(14px, 24px, var(--font-weight-semi-bold));
+}
+
+.caption {
+  @include typography(12px, 24px, var(--font-weight-regular));
+}
+
+.captionLink {
+  @include typography(12px, 24px, var(--font-weight-semi-bold));
+
+  color: var(--color-accent-500);
+  text-decoration: underline;
+}

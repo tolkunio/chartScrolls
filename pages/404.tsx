@@ -1,5 +1,6 @@
-import {getLayout} from "@/components/Layout/Layout";
+
 import styles from '../styles/Home.module.scss'
+import {getLayout} from "@/layout/Layout";
 type PropsType={
     msg:string
 }

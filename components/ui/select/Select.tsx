@@ -4,7 +4,9 @@ import {ReactNode,forwardRef} from "react";
 import Image from "next/image";
 import {SelectItem} from "@/components/ui/select/SelectItem/SelectItem";
 import {ITicker} from "@/assets/services/ticket.service";
-import {tickerList} from "@/assets/services/ticket.service";
+import {useState} from "react";
+import {ArrowUp} from "@/assets/icons";
+import {ArrowDown} from "@/assets/icons";
 
 export type SelectProps = {
     options:ITicker []
@@ -28,26 +30,28 @@ export const Select=forwardRef<HTMLDivElement, SelectProps>(
         ref?
     ) => {
         const currentItem = options.find(item => item.shortName == value);
+        const [isOpen, setIsOpen] = useState(false)
+
         return(
             <div className={s.wrapper}>
                 <RadixSelect.Root
                     value={value}
-                    onValueChange={onValueChange}>
-                    {label}
+                    onValueChange={onValueChange}
+                    onOpenChange={setIsOpen}>
                     <RadixSelect.Trigger className={s.trigger} aria-label="select">
                         <p className={s.text}>
-                            {`${currentItem?.name} (${currentItem?.shortName})`}
+                            {`${currentItem?.name}`}
                         </p>
                         <RadixSelect.Icon className={s.icon}>
-                            <Image src={'/icons/select-arrow.svg'} width={24} height={24} alt={'arrow-down'}/>
+                            {isOpen ? <ArrowUp className={'icon'} /> : <ArrowDown className={'icon'} />}
                         </RadixSelect.Icon>
                     </RadixSelect.Trigger>
                     <RadixSelect.Portal>
-                        <RadixSelect.Content ref={ref} position="popper">
+                        <RadixSelect.Content ref={ref}  className={s.content} collisionPadding={0} position={'popper'}>
                             <RadixSelect.Viewport>
                                 {options.map(option => (
-                                    <SelectItem key={option.name} value={option.shortName}>
-                                        {option.name} ({option.shortName})
+                                    <SelectItem className={s.item} key={option.name} value={option.shortName}>
+                                        {option.name}
                                     </SelectItem>
                                 ))}
                             </RadixSelect.Viewport>
